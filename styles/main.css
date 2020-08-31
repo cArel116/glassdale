@@ -1,0 +1,35 @@
+.officerHeading {
+    font-size: 2em;
+    text-align: center;
+}
+
+.criminalHeading {
+    font-size: 2em;
+    text-align: center;
+}
+
+.officersContainer {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;    
+}
+
+.criminalsContainer {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+
+.officer-card {
+    flex-basis: 30%;
+    border: solid steelblue;
+    margin: 1em;
+    padding: 1em;
+}
+
+.criminal-card {
+    flex-basis: 25%;
+    border: solid darkorange;
+    margin: 1em;
+    padding: 1em;
+}
