@@ -18,5 +18,5 @@ const addCriminalsToDOM = (aCriminalArray) => {
     })
     console.log("HTMLArray", HTMLArray);
 
-    domElement.innerHTML += HTMLArray;
+    domElement.innerHTML += HTMLArray.join("");
 }
