@@ -1,0 +1,3 @@
+/*
+map over an array and display all notes from Notes.js
+*/
