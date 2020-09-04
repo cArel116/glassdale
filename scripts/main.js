@@ -1,10 +1,13 @@
 console.log("What up, Monday?!");
 
 import { OfficerList } from "./officers/OfficerList.js";
+import { arrestingOfficerSelect } from "./officers/OfficerSelect.js";
 import { CriminalList } from "./criminals/CriminalList.js";
 import { ConvictionSelect } from "./convictions/ConvictionSelect.js";
-import { getConvictions } from "./convictions/ConvictionProvider.js";
+import { NoteForm } from "./notes/NoteForm.js";
 
-// OfficerList();
+OfficerList();
 CriminalList();
-getConvictions().then(() => { ConvictionSelect() });
+ConvictionSelect();
+arrestingOfficerSelect();
+NoteForm();

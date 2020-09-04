@@ -1,5 +1,8 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js';
-import { CriminalHTML } from './Criminal.js'
+import { CriminalHTML } from './Criminal.js';
+import { OfficerList } from '../officers/OfficerList.js';
+import { useOfficers } from '../officers/OfficerProvider.js';
+
 
 const eventHub = document.querySelector(".container")
 
@@ -24,6 +27,33 @@ eventHub.addEventListener('crimeChosen', event => {
         addCriminalsToDOM(useCriminals());
     }
 })
+
+
+
+/* ****  ARRESTING OFFICER **** */
+
+eventHub.addEventListener('officerChosen', event => {
+    // How can you access the officer name that was selected by the user?
+    const officerName = event.detail.officerThatWasChosen
+    if (officerName !== "0") {
+
+        // How can you get the criminals that were arrested by that officer?
+
+        const criminals = useCriminals().filter(criminalObject => {
+            if (criminalObject.arrestingOfficer === officerName) {
+                return true
+            }
+        })
+        OfficerList(criminals);
+    }
+    else {
+        OfficerList(useOfficers());
+    }
+
+})
+
+/* *** */
+
 
 export const CriminalList = () => {
     getCriminals()
