@@ -1,13 +1,17 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js';
 import { CriminalHTML } from './Criminal.js';
-import { OfficerList } from '../officers/OfficerList.js';
-import { useOfficers } from '../officers/OfficerProvider.js';
+// import { OfficerList } from '../officers/OfficerList.js';
+// import { useOfficers } from '../officers/OfficerProvider.js';
 
 
 const eventHub = document.querySelector(".container")
 
 // Listen for the custom event you dispatched in ConvictionSelect
 eventHub.addEventListener('crimeChosen', event => {
+
+    //get selected officer
+    const contentTarget = document.querySelector(".officerSelect")
+    // console.log("what officer is selected?", contentTarget.value);
 
     // You remembered to add the id of the crime to the event detail, right?
     if (event.detail.crimeThatWasChosen !== "0") {
@@ -28,38 +32,28 @@ eventHub.addEventListener('crimeChosen', event => {
     }
 })
 
-
-
 /* ****  ARRESTING OFFICER **** */
-
 eventHub.addEventListener('officerChosen', event => {
     // How can you access the officer name that was selected by the user?
     const officerName = event.detail.officerThatWasChosen
+
+    // How can you get the criminals that were arrested by that officer?
     if (officerName !== "0") {
-
-        // How can you get the criminals that were arrested by that officer?
-
-        const criminals = useCriminals().filter(criminalObject => {
-            if (criminalObject.arrestingOfficer === officerName) {
-                return true
-            }
-        })
-        OfficerList(criminals);
+        const matchingCriminals = useCriminals().filter(criminalObj => {
+            return criminalObj.arrestingOfficer === officerName
+        });
+        addCriminalsToDOM(matchingCriminals)
+    } else {
+        addCriminalsToDOM(useCriminals())
     }
-    else {
-        OfficerList(useOfficers());
-    }
-
 })
-
-/* *** */
 
 
 export const CriminalList = () => {
     getCriminals()
         .then(() => {
             const criminalArray = useCriminals();
-            console.log("criminalArray", criminalArray);
+            // console.log("criminalArray", criminalArray);
             addCriminalsToDOM(criminalArray);
         })
 }
@@ -70,7 +64,7 @@ const addCriminalsToDOM = (aCriminalArray) => {
     let HTMLArray = aCriminalArray.map(singleCriminal => {
         return CriminalHTML(singleCriminal);
     })
-    console.log("HTMLArray", HTMLArray);
+    // console.log("HTMLArray", HTMLArray);
 
     domElement.innerHTML = HTMLArray.join("");
 }

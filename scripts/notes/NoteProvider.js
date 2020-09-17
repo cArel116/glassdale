@@ -1,12 +1,32 @@
+
 /*
-    hold onto array of notes
-    useNotes -- makes copy of array of notes and returns
-    get all the notes from database
-    add a note to the DB
+hold on to array of notes
+useNotes - makes copy of array of notes and returns
+get all the notes from DB
+add a note to the DB
 */
 
+let notes = [];
+
+const eventHub = document.querySelector(".container")
+
+const dispatchStateChangeEvent = () => {
+    const noteStateChangedEvent = new CustomEvent("noteStateChanged")
+
+    eventHub.dispatchEvent(noteStateChangedEvent)
+}
+
+export const getNotes = () => {
+    return fetch('http://localhost:8088/notes')
+        .then(response => response.json())
+        .then(parsedNotes => {
+            notes = parsedNotes
+        })
+
+}
+
 export const useNotes = () => {
-    return useNotes.slice();
+    return notes.slice();
 }
 
 export const saveNote = noteObj => {

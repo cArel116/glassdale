@@ -10,22 +10,44 @@
 <body>
 
     <main class="container">
+
         <header>
-            <div class="filters">
+            <h1 class="glassdaleHeading">Glassdale PD</h1>
+            <!-- <div class="filters">
                 <div class="filter filters__crime"></div>
                 <div class="filter filters__incarceration"></div>
                 <div class="filter filters__officer"></div>
-            </div>
+                <div class="noteFormContainer"></div>
+            </div> -->
         </header>
 
-        <article class="noteFormContainer"></article>
+        <div class="main-section">
+            <div class="lists-area">
 
-        <h2 class="officerHeading"><strong>The Officers</strong></h2>
-        <article class="officersContainer"></article>
+                <h2 class="criminalHeading"><strong>The Criminals</strong></h2>
+                <div class="filters">
+                    <div class="filter filters__crime"></div>
+                    <div class="filter filters__officer"></div>
+                </div>
+                <section class="criminalsContainer"></section>
 
+                <h2 class="officerHeading"><strong>The Officers</strong></h2>
+                <section class="officersContainer"></section>
 
-        <h2 class="criminalHeading"><strong>The Criminals</strong></h2>
-        <article class="criminalsContainer"></article>
+                <!-- </div>
+
+            <aside> -->
+                <h2 class="witnessHeading">Witnesses</h2>
+                <section class="witnessContainer"></section>
+
+                <h2 class="noteHeading">Notes</h2>
+                <div class="noteFormContainer"></div>
+                <section class="noteListContainer"></section>
+                <!-- </aside> -->
+            </div>
+
+        </div>
+
     </main>
 
     <script type="module" src="./scripts/main.js"></script>

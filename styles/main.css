@@ -1,39 +1,164 @@
-.officerHeading {
-    font-size: 2em;
+body {
+    background-color: black;
+}
+
+header {
+    display: flex;
+    flex-flow: column;
+}
+
+.glassdaleHeading {
+    border-bottom: solid blue;
+    /* font-family: 'Courier Prime', monospace; */
+    padding: 1em;
     text-align: center;
+    vertical-align: baseline;
+    letter-spacing: .3em;
+    font-size: 5em;
+    color: white;
+}
+
+.filters {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+h2 {
+    font-size: 3em;
+    text-align: center;    
+    color: white;
+}
+
+.officerHeading {
+    margin-top: 2em;    
 }
 
 .criminalHeading {
-    font-size: 2em;
-    text-align: center;
+    margin-top: 2em;
 }
 
 .officersContainer {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;    
+    display: flex;    
+    overflow: scroll;
+    overflow-y: hidden;
+    /* justify-content: space-evenly;    */
+    /* padding: 0;
+    margin: 0; */
+    color: white;   
+    height: 30em;
 }
 
 .criminalsContainer {
     display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;
+    overflow: scroll;
+    overflow-y: hidden;
+	/* justify-content: space-evenly; */
+	color: white;
 }
 
 .officer-card {
-    flex-basis: 30%;
-    border: solid steelblue;
+    /* flex-basis: 100%; */
+    border: solid blue;
     margin: 1em;
     padding: 1em;
+    color: white;
+    text-align: left;
+    width: 50em;
 }
 
 .criminal-card {
     flex-basis: 25%;
-    border: solid darkorange;
+    border: solid darkred;
     margin: 1em;
     padding: 1em;
+    color: white;
 }
 
-/* .noteFormContainer {
-    display: flex;    
+.noteFormContainer {
+    /* background-color: rgb(217, 224, 232); */
+    display: flex;
+    padding: 1em;    
+    color: white;
+    border-bottom: solid white;
+}
+
+.newNoteParent {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 2em;
+}
+
+.witnessHeading {
+    margin-top: 2em;
+}
+
+.witnessContainer {
+    border: solid white;
+}
+
+.noteHeading {
+    margin-top: 2em;
+}
+
+.noteListContainer {
+    border: solid white;
+    height: 30em;
+    
+}
+
+/* .newNoteDetails {
+    padding: 1em;
+    font-size: 1em;
 } */
+
+/* .noteFormContainer h1, h2, h3 {
+	color: rgb(80 42 5);
+	margin-top: 2em;
+} */
+
+/* textarea {
+	width: 100%;
+} */
+
+
+.note {
+    margin: 1em auto;
+    color: white;
+}
+
+.main-section {
+	display: flex;
+}
+
+.lists-area {
+	/* background-color: #ff9e2c; */
+	flex: 2;
+    padding: 1rem;
+    width: 60%;
+}
+/* 
+aside {
+	background-color: #b6701e;
+	flex: 1;
+    padding: 1rem;
+    width: 40%;
+} */
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: slategray;
+    border-radius: 10px;
+  }

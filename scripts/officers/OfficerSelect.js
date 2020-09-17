@@ -5,10 +5,10 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__officer")
 
 // On the event hub, listen for a "change" event.
-eventHub.addEventListener("change", changeEvent => {
-    if (changeEvent.target.id === "officerSelect") {
+eventHub.addEventListener("change", event => {
+    if (event.target.id === "officerSelected") {
         // Get the name of the selected officer
-        const selectedOfficer = changeEvent.target.value
+        const selectedOfficer = event.target.value
 
         // Define a custom event
         const customEvent = new CustomEvent("officerChosen", {
@@ -22,9 +22,10 @@ eventHub.addEventListener("change", changeEvent => {
     }
 })
 
+
 // EXPORT FUNCTION***********************
 
-export const arrestingOfficerSelect = () => {
+export const OfficerSelect = () => {
     // Get all officers from application state
     getOfficers()
         .then(() => {
@@ -49,10 +50,9 @@ const render = (officersCollection) => {
     contentTarget.innerHTML = `
         <select class="dropdown" id="officerSelected">
             <option value="0">Please select an arresting officer...</option>
-            ${
-        officersCollection.map(officer => {
-            return `<option value=${officer}>${officer}</option>`
-        })
+            ${officersCollection.map(officerObj => {
+        return `<option value="${officerObj}">${officerObj}</option>`
+    }).join("")
         }
         </select>
     `
