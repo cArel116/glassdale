@@ -1,33 +1,30 @@
-/*
-    A bunch of input boxes related to the note information.
-*/
-
 import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
-import { saveNote } from './NoteProvider.js'
-
-const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".noteFormContainer")
+import { saveNote } from "./NoteProvider.js";
+/*
+    A bunch of input boxes related to the note information
+*/
+const eventHub = document.querySelector(".container");
+const contentTarget = document.querySelector(".noteFormContainer");
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
 
-        clickEvent.preventDefault()
-
-        const noteContent = document.querySelector("#note-text")
+        const noteContent = document.querySelector("#noteForm--text")
         const noteCriminal = document.querySelector("#noteForm--criminal")
 
         if (noteCriminal.value !== "0") {
             const newNote = {
                 noteText: noteContent.value,
-                suspect: noteCriminal.value,
+                suspectId: parseInt(noteCriminal.value),
                 date: Date.now()
             }
-        }
-        else {
-            window.alert("Choose A Suspect");
+
+            saveNote(newNote);
+
+        } else {
+            window.alert("Choose a Suspect");
         }
 
-        saveNote(newNote);
 
 
     }
@@ -35,19 +32,18 @@ eventHub.addEventListener("click", clickEvent => {
 
 const render = (criminalArray) => {
     contentTarget.innerHTML = `
-        <h3>New Note Details</h3>
-        <input type="text" id="note-text">
-
-        <select class="dropdown" id="noteForm--criminal">
-            <option value="0">Please select a criminal...</option>
-            ${
-        criminalArray.map(criminalObject => {
-            return `<option value=${criminalObject.name}>${criminalObject.name}</option>`
-        })
+        <div class="newNoteParent">
+            <h3 class="newNoteDetails">New Note Details</h3>
+			<select class="dropdown" id="noteForm--criminal">
+				<option value="0">Please select a criminal...</option>
+				${criminalArray.map(criminalObject => {
+        return `<option value="${criminalObject.id}">${criminalObject.name}</option>`
+    }).join("")
         }
-        </select>
-
-        <button type="button" id="saveNote">Save Note</button>
+			</select>
+			<textarea id="noteForm--text" placeholder="Put a note here"></textarea>
+			<button id="saveNote">Save Note</button>
+		</div>
     `
 }
 
