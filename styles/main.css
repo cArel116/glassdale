@@ -8,6 +8,7 @@ header {
 }
 
 .glassdaleHeading {
+    display: flex;
     border-bottom: solid blue;
     /* font-family: 'Courier Prime', monospace; */
     padding: 1em;
@@ -16,6 +17,12 @@ header {
     letter-spacing: .3em;
     font-size: 5em;
     color: white;
+    background-image: url('../images/1482814.jpg');
+    background-size: cover;
+}
+
+.glassdaleEst {
+    margin-top: 0;
 }
 
 .filters {
@@ -132,11 +139,12 @@ h2 {
     color: white;
     border: solid slategray;
     align-self: flex-start;
-    flex-basis: 25%;
+    flex-basis: 20%;
     height: 100px;
     overflow-y: auto;
     overflow-x: hidden;
     overflow-wrap: break-word;
+    font-family: 'Courier Prime', monospace;
 }
 
 .noteFormContainer {
