@@ -16,6 +16,10 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 
+export const useNotes = () => {
+    return notes.slice();
+}
+
 export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
         .then(response => response.json())
@@ -23,10 +27,6 @@ export const getNotes = () => {
             notes = parsedNotes
         })
 
-}
-
-export const useNotes = () => {
-    return notes.slice();
 }
 
 export const saveNote = noteObj => {
@@ -42,3 +42,11 @@ export const saveNote = noteObj => {
         })
         .then(dispatchStateChangeEvent)
 }
+
+
+//button click
+//reference specific note by the id
+//removed from api
+//get all notes
+//display notes
+
