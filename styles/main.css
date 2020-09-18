@@ -46,7 +46,8 @@ h2 {
     /* padding: 0;
     margin: 0; */
     color: white;   
-    height: 30em;
+    /* height: 30em; */
+    font-family: 'Courier Prime', monospace;
 }
 
 .criminalsContainer {
@@ -54,20 +55,27 @@ h2 {
     overflow: scroll;
     overflow-y: hidden;
 	/* justify-content: space-evenly; */
-	color: white;
+    color: white;
+    font-family: 'Courier Prime', monospace;
 }
 
 .officer-card {
-    /* flex-basis: 100%; */
+    flex-basis: 25%;
     border: solid blue;
     margin: 1em;
     padding: 1em;
     color: white;
-    text-align: left;
-    width: 50em;
+    text-align: left;        
+}
+
+.officerCardName {
+    width: 250px;    
+    text-align: center;
 }
 
 .criminal-card {
+    display: flex;
+    flex-direction: column;
     flex-basis: 25%;
     border: solid darkred;
     margin: 1em;
@@ -75,19 +83,14 @@ h2 {
     color: white;
 }
 
-.noteFormContainer {
-    /* background-color: rgb(217, 224, 232); */
-    display: flex;
-    padding: 1em;    
-    color: white;
-    border-bottom: solid white;
+.criminalCardName {
+    width: 250px;
+    text-align: center;
+    border-bottom: solid darkred;;
 }
 
-.newNoteParent {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 2em;
+#associateAlibis {
+    align-self: center;
 }
 
 .witnessHeading {
@@ -95,7 +98,17 @@ h2 {
 }
 
 .witnessContainer {
-    border: solid white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier Prime', monospace;
+}
+
+.witness-card {
+    flex-basis: 25%;
+    border: solid slategrey;
+    margin: 1em;
+    padding: 1em;
+    color: white;
 }
 
 .noteHeading {
@@ -103,15 +116,51 @@ h2 {
 }
 
 .noteListContainer {
-    border: solid white;
-    height: 30em;
-    
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    border: solid slategray;
+    height: 30em;    
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* .newNoteDetails {
+.note {
+    margin: 1em;
     padding: 1em;
-    font-size: 1em;
+    color: white;
+    border: solid slategray;
+    align-self: flex-start;
+    flex-basis: 25%;
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.noteFormContainer {
+    /* background-color: rgb(217, 224, 232); */
+    display: flex;
+    padding: 1em;    
+    color: white;        
+}
+
+/* #noteForm--text {
+    text-align: left;
+    vertical-align: center;
 } */
+
+.newNoteParent {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 2em;
+}
+
+.newNoteDetails {
+    
+}
 
 /* .noteFormContainer h1, h2, h3 {
 	color: rgb(80 42 5);
@@ -121,12 +170,6 @@ h2 {
 /* textarea {
 	width: 100%;
 } */
-
-
-.note {
-    margin: 1em auto;
-    color: white;
-}
 
 .main-section {
 	display: flex;
