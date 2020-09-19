@@ -35,16 +35,19 @@ eventHub.addEventListener("click", clickEvent => {
 const render = (criminalArray) => {
     contentTarget.innerHTML = `
         <div class="newNoteParent">
-            <select class="dropdown" id="noteForm--criminal">
-				<option value="0">Please select a criminal...</option>
+            <select class="noteForm dropdown" id="noteForm--criminal">
+				<option value="0">Select Criminal</option>
 				${criminalArray.map(criminalObject => {
         return `<option value="${criminalObject.id}">${criminalObject.name}</option>`
     }).join("")
         }
-			</select>
-			<textarea id="noteForm--text" placeholder="Put a note here"></textarea>
-			<button id="saveNote">Save Note</button>
-		</div>
+            </select>
+        </div>
+        <div class="newNoteSubmissionArea">
+            <textarea id="noteForm--text" class="noteForm noteFormTextArea" placeholder="[Type New Note Here]"></textarea>
+            <button id="saveNote" class="noteForm saveNoteButton">Save Note</button>
+        </div>
+		
     `
 }
 
