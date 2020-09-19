@@ -25,16 +25,75 @@ header {
     margin-top: 0;
 }
 
-.filters {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-}
-
 h2 {
     font-size: 3em;
     text-align: center;    
     color: white;
+}
+
+.main-section {
+	display: flex;
+}
+
+.lists-area {
+	/* background-color: #ff9e2c; */
+    flex: 2;
+    padding: 1rem;
+    width: 60%;
+}
+
+.filters {
+    display: flex;
+	align-items: baseline;
+    justify-content: left;
+    padding-left: 1em;   
+    position: relative; 
+}
+
+.dropdown {
+    display: block;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: black;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    width: 300px;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid black;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    background-color:slategray;    
+    height: 3em;
+}
+
+/* Hover style */
+.dropdown:hover {
+    border-color:darkred;
+}
+/* Focus style */
+.dropdown:focus {
+    border-color: black;    
+    box-shadow: 0 0 1px 3px darkred;
+    box-shadow: 0 0 0 3px;
+    color: black; 
+    outline: black;
+}
+
+/* .filter {
+    height: 3em;
+} */
+
+.filter:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid slategray;
+    z-index: 1;
 }
 
 .officerHeading {
@@ -96,9 +155,23 @@ h2 {
     border-bottom: solid darkred;;
 }
 
-#associateAlibis {
-    align-self: center;
+.associateAlibis {
+    /* align-self: center; */
+    margin-top: 1.5em;
+    background: slategray;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 black;
+    font-family: 'Courier Prime', monospace;
+    color: black;
 }
+
+
+
+
+
+/* ******** WITNESS SECTION ******** */
+
+
+
 
 .witnessHeading {
     margin-top: 2em;
@@ -118,8 +191,20 @@ h2 {
     color: white;
 }
 
+
+
+
+/* ******** NOTE SECTION ******** */
+
+
+
 .noteHeading {
     margin-top: 2em;
+}
+
+.note-area {
+    display: flex;
+    flex-direction: column;
 }
 
 .noteListContainer {
@@ -127,10 +212,11 @@ h2 {
     flex-flow: wrap;
     justify-content: flex-start;
     align-content: flex-start;
-    border: solid slategray;
+    /* border: solid slategray; */
     height: 30em;    
     overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 1em;    
 }
 
 .note {
@@ -148,54 +234,92 @@ h2 {
 }
 
 .noteFormContainer {
-    /* background-color: rgb(217, 224, 232); */
-    display: flex;
-    padding: 1em;    
-    color: white;        
+	display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: left;
+    /* text-align: center; */
+    margin: 0;
+    padding: 0;
+    /* height: 3em; */
+    position: relative;
 }
 
-/* #noteForm--text {
-    text-align: left;
+.newNoteParent:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid slategray;
+    z-index: 1;
+}
+
+.noteFormTextArea {
+    /* text-align: left;
     vertical-align: center;
-} */
+    color: black; */
+    display: block;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: black;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    width: 300px;
+    max-width: 100%;
+    min-width: 300px;
+    box-sizing: border-box;
+    margin: 0;
+    /* border: 1px solid black; */
+    /* box-shadow: 0 1px 0 1px rgba(0,0,0,.04); */
+    /* border-top-right-radius: 1em;
+    border-top-left-radius: 1em; */
+    background-color: whitesmoke;
+    height: 3em;
+    min-height: 3em;
+    margin-left: 1em;
+}
+
+.saveNoteButton {
+    height: 3em;
+    /* border-radius: 2em; */
+    margin-left: .5em;
+    box-sizing: border-box;
+    background: slategray;
+    font-family: 'Courier Prime', monospace;
+    color: black;
+    /* background: linear-gradient(to bottom, black 50%, slategray 100%); */
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 black;    
+}
+
+::placeholder {
+    color: rgb(65, 65, 65);
+    opacity: 10;
+    font-family: 'Courier Prime', monospace;
+    text-align: center;
+}
 
 .newNoteParent {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    position: relative;
     width: 100%;
-    height: 2em;
+    /* height: 3em; */
+    padding-left: 1em;
 }
 
-.newNoteDetails {
-    
+.newNoteSubmissionArea {
+    display: flex;
+    margin-top: .5em;
 }
 
-/* .noteFormContainer h1, h2, h3 {
-	color: rgb(80 42 5);
-	margin-top: 2em;
-} */
 
-/* textarea {
-	width: 100%;
-} */
 
-.main-section {
-	display: flex;
-}
 
-.lists-area {
-	/* background-color: #ff9e2c; */
-	flex: 2;
-    padding: 1rem;
-    width: 60%;
-}
-/* 
-aside {
-	background-color: #b6701e;
-	flex: 1;
-    padding: 1rem;
-    width: 40%;
-} */
+
+/* ******** SCROLLBAR PROPERTIES ******** */
+
+
 
 /* width */
 ::-webkit-scrollbar {

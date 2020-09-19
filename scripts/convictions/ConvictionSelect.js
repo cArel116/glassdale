@@ -53,7 +53,7 @@ const render = (convictionsCollection) => {
     */
     contentTarget.innerHTML = `
         <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime...</option>
+            <option value="0">Select A Crime</option>
             ${convictionsCollection.map(crime => {
         return `<option value=${crime}>${crime}</option>`
     })
