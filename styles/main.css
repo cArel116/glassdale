@@ -61,7 +61,7 @@ h2 {
     max-width: 100%; /* useful when width is set to anything other than 100% */
     box-sizing: border-box;
     margin: 0;
-    border: solid slategray;
+    /* border: solid slategray; */
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-top-right-radius: 1em;
     border-top-left-radius: 1em;
