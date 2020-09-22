@@ -50,7 +50,7 @@ h2 {
     position: relative; 
 }
 
-.dropdown {
+.dropdown {    
     display: block;
     font-family: 'Courier Prime', monospace;
     font-weight: 700;
@@ -61,21 +61,33 @@ h2 {
     max-width: 100%; /* useful when width is set to anything other than 100% */
     box-sizing: border-box;
     margin: 0;
-    border: 1px solid slategray;
+    /* border: solid slategray; */
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-top-right-radius: 1em;
     border-top-left-radius: 1em;
     background-color:black;    
     height: 3em;
-    /* border-bottom: 1px solid black; */
+    /* border-bottom: solid black; */
+}
+
+.selectCrimeDropdown {
+    border-bottom: solid slategray;
+}
+
+.selectOfficerDropdown {
+    border-bottom: solid black;
+}
+
+.selectCriminalDropdown {
+    border-bottom: solid black;
 }
 
 /* Hover style */
-.dropdown:hover {
+.dropdown::hover {
     border-color:darkred;
 }
 /* Focus style */
-.dropdown:focus {
+.dropdown::focus {
     border-color: black;    
     box-shadow: 0 0 1px 3px darkred;
     box-shadow: 0 0 0 3px;
@@ -84,17 +96,17 @@ h2 {
 }
 
 .filter {
-    border-bottom-style: hidden;
+    border-bottom: hidden;
 }
 
-.filter:after {
+.filter::after {
     position: absolute;
     content: "";
     width: 100%;
     bottom: 0;
     left: 0;
-    border-bottom: 1px solid slategray;
-    z-index: 1;
+    border-bottom: solid slategray;
+    z-index: -1;
 }
 
 .officerHeading {
@@ -124,6 +136,7 @@ h2 {
 	/* justify-content: space-evenly; */
     color: white;
     font-family: 'Courier Prime', monospace;
+    margin-top: 1em;
 }
 
 .officer-card {
@@ -224,7 +237,7 @@ h2 {
     margin: 1em;
     padding: 1em;
     color: white;
-    border: solid slategray;
+    border: 1px solid slategray;
     align-self: flex-start;
     flex-basis: 20%;
     height: 100px;
@@ -255,14 +268,14 @@ h2 {
     position: relative;
 }
 
-.newNoteParent:after {
+.newNoteParent::after {
     position: absolute;
     content: "";
     width: 100%;
     bottom: 0;
     left: 0;
-    border-bottom: 1px solid slategray;
-    z-index: 1;
+    border-bottom: solid slategray;
+    z-index: -1;
 }
 
 .noteFormTextArea {
@@ -324,7 +337,7 @@ h2 {
 
 .newNoteSubmissionArea {
     display: flex;
-    margin-top: .5em;
+    margin-top: 1em;
 }
 
 
